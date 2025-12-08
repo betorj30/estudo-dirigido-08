@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from .models import Unidade, Sala, Status, Bem
+from .models import Unidades, Salas, Status, Bem
 
 class UnidadeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Unidade
+        model = Unidades
         fields = "__all__"
 
 class SalaSerializer(serializers.ModelSerializer):  
     class Meta:
-        model = Sala
+        model = Salas
         fields = "__all__"
 
 class StatusSerializer(serializers.ModelSerializer):

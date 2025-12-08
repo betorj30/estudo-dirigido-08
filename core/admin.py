@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Unidade, Sala, Status, Bem
+from .models import Unidades, Salas, Status, Bem
 
-@admin.register(Unidade)
+@admin.register(Unidades)
 class UnidadeAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'endereco')
     search_fields = ('nome',)
 
 
-@admin.register(Sala)
+@admin.register(Salas)
 class SalaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'unidade')
     list_filter = ('unidade',)

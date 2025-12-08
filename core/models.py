@@ -24,8 +24,8 @@ class Status(models.Model):
 class Bem(models.Model):
      nome = models.CharField(max_length=200)
      tombo = models.CharField(max_length=50, unique=True)
-     unidade = models.ForeignKey(Unidade, on_delete=models.PROTECT, related_name='bens')
-     sala = models.ForeignKey(Sala, on_delete=models.SET_NULL, null=True, blank=True)
+     unidade = models.ForeignKey(Unidades, on_delete=models.PROTECT, related_name='bens')
+     sala = models.ForeignKey(Salas, on_delete=models.SET_NULL, null=True, blank=True)
      status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True)
      nome = models.CharField(max_length=150)
 
