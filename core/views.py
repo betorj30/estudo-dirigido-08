@@ -1,28 +1,25 @@
-
-Destaques da pasta
-Código Django Views define rotas para gerenciar Unidade, Sala, Status e Bem de um sistema de inventário.
-
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from rest_framework import generics
-from .models import Unidade, Sala, Status, Bem
+from .models import Unidades, Salas, Status, Bem, Categoria
 from .serializers import (
     UnidadeSerializer,
     SalaSerializer,
     StatusSerializer,
-    BemSerializer
+    BemSerializer,
+    CategoriaSerializer,
 )
 def home(request):
     return HttpResponse("Bem-vindo ao sistema de inventário de bens!")
 
 class UnidadeListCreate(generics.ListCreateAPIView):
-    queryset = Unidade.objects.all()
+    queryset = Unidades.objects.all()
     serializer_class = UnidadeSerializer
 
 
 class SalaListCreate(generics.ListCreateAPIView):
-    queryset = Sala.objects.all()
+    queryset = Salas.objects.all()
     serializer_class = SalaSerializer
 
 
@@ -39,3 +36,7 @@ class BemListCreate(generics.ListCreateAPIView):
 class BemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Bem.objects.all()
     serializer_class = BemSerializer
+
+class CategoriaListCreate(generics.ListCreateAPIView):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer

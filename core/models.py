@@ -34,3 +34,10 @@ class Bem(models.Model):
 
      def __str__(self):
          return f"{self.nome} ({self.tombo})"
+     
+class Categoria(models.Model):
+     nome = models.CharField(max_length=100)
+     descricao = models.TextField(blank=True)
+
+     def __str__(self):
+         return self.nome

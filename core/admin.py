@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Unidades, Salas, Status, Bem
+from .models import Unidades, Salas, Status, Bem, Categoria
 
 @admin.register(Unidades)
 class UnidadeAdmin(admin.ModelAdmin):
@@ -21,3 +21,9 @@ class BemAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'tombo', 'unidade', 'sala', 'status')
     search_fields = ('nome', 'tombo')
     list_filter = ('unidade', 'sala', 'status')
+
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome')
+    search_fields = ('nome',)
+    list_filter = ('nome',)

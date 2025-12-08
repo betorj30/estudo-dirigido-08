@@ -4,7 +4,8 @@ from .views import (
     SalaListCreate,
     StatusListCreate,
     BemListCreate,
-    BemDetail
+    BemDetail,
+    CategoriaListCreate,
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('status/', StatusListCreate.as_view()),
     path('bens/', BemListCreate.as_view()),
     path('bens/<int:pk>/', BemDetail.as_view()),
+    path('categorias/', CategoriaListCreate.as_view()),
 ]
