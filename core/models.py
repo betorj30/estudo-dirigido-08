@@ -28,6 +28,7 @@ class Bem(models.Model):
      sala = models.ForeignKey(Salas, on_delete=models.SET_NULL, null=True, blank=True)
      status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True)
      nome = models.CharField(max_length=150)
+     categoria = models.ForeignKey('Categoria', on_delete=models.SET_NULL, null=True, blank=True)
 
      criado_em = models.DateTimeField(auto_now_add=True)
      atualizado_em = models.DateTimeField(auto_now=True)
