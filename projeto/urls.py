@@ -3,14 +3,16 @@ from django.urls import path, include
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
 from core.views import home
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
     path("api/", include("core.urls")),
     path("openapi/", SpectacularAPIView.as_view(), name="openapi-schema"),
-    path("docs/", SpectacularSwaggerView.as_view(), name="swagger-ui"),
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Interface Redoc (opcional)
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 
     # Swagger
     path("openapi/", get_schema_view(
