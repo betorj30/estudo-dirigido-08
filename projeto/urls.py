@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
-from core.views import home
+from core.views import home, api_login
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
@@ -24,4 +24,6 @@ urlpatterns = [
     path("docs/", TemplateView.as_view(
         template_name="swagger.html"
     ), name="swagger-ui"),
+
+    path('login/', api_login),
 ]

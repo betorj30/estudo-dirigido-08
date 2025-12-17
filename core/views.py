@@ -17,10 +17,6 @@ from rest_framework.permissions import AllowAny
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 
-# codigo estudo dirigido 9
-@api_view(["POST"])
-@permission_classes([AllowAny])
-
 # codigo estudo dirigido 8 e hand on
 def home(request):
     return HttpResponse("Bem-vindo ao sistema de inventário de bens!")
@@ -53,6 +49,10 @@ class CategoriaListCreate(generics.ListCreateAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
+# codigo estudo dirigido 9
+
+@api_view(["POST"])
+@permission_classes([AllowAny])
 
 def api_login(request):
     username = request.data.get("username")
@@ -64,3 +64,5 @@ def api_login(request):
     
     login(request, user)
     return JsonResponse({"detail": "Login realizado com sucesso"})
+
+

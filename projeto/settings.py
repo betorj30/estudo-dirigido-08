@@ -146,6 +146,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+REST_FRAMEWORK = {
+    # This is the missing piece causing the AssertionError
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 SPECTACULAR_SETTINGS = {
     "TITLE": "PATRI-TECH API",
     "DESCRIPTION": "API do sistema de inventário patrimonial",
