@@ -10,6 +10,29 @@ from .serializers import (
     BemSerializer,
     CategoriaSerializer,
 )
+
+# importações para autenticação
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+
+# codigo estudo dirigido 9
+@api_view(["POST"])
+@permission_classes([AllowAny])
+
+def api_login(request):
+    username = request.data.get("username")
+    password = request.data.get("password")
+    user = authenticate(request, username=username, password=password)
+
+    if user is None:
+            return JsonResponse({"detail": "Credenciais inválidas"}, status=4)
+    
+    login(request, user)
+    return JsonResponse({"detail": "Login realizado com sucesso"})
+
+# codigo estudo dirigido 8 e hand on
 def home(request):
     return HttpResponse("Bem-vindo ao sistema de inventário de bens!")
 

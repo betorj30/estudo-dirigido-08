@@ -15,4 +15,5 @@ urlpatterns = [
     path('bens/', BemListCreate.as_view()),
     path('bens/<int:pk>/', BemDetail.as_view()),
     path('categorias/', CategoriaListCreate.as_view()),
+    path("login/", api_login),
 ]
