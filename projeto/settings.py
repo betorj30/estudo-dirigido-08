@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
     'rest_framework',
     'drf_spectacular',
+    'core',
+    'unidades',
+    'salas',
+    'status',
+    'bens',
+    'categorias',
+    
 ]
 
 MIDDLEWARE = [
@@ -137,11 +143,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ],
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'PATRI-TECH API',
-    'DESCRIPTION': 'Documentação da API de inventário de bens',
-    'VERSION': '1.0.0',
+    "TITLE": "PATRI-TECH API",
+    "DESCRIPTION": "API do sistema de inventário patrimonial",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }

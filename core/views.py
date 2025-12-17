@@ -21,17 +21,6 @@ from django.http import JsonResponse
 @api_view(["POST"])
 @permission_classes([AllowAny])
 
-def api_login(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
-    user = authenticate(request, username=username, password=password)
-
-    if user is None:
-            return JsonResponse({"detail": "Credenciais inválidas"}, status=4)
-    
-    login(request, user)
-    return JsonResponse({"detail": "Login realizado com sucesso"})
-
 # codigo estudo dirigido 8 e hand on
 def home(request):
     return HttpResponse("Bem-vindo ao sistema de inventário de bens!")
@@ -63,3 +52,15 @@ class BemDetail(generics.RetrieveUpdateDestroyAPIView):
 class CategoriaListCreate(generics.ListCreateAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+
+def api_login(request):
+    username = request.data.get("username")
+    password = request.data.get("password")
+    user = authenticate(request, username=username, password=password)
+
+    if user is None:
+        return JsonResponse({"detail": "Credenciais inválidas"}, status=4)
+    
+    login(request, user)
+    return JsonResponse({"detail": "Login realizado com sucesso"})
