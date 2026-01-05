@@ -25,8 +25,16 @@ class UnidadeListCreate(generics.ListCreateAPIView):
     queryset = Unidades.objects.all()
     serializer_class = UnidadeSerializer
 
+class UnidadeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Unidades.objects.all()
+    serializer_class = UnidadeSerializer
+
 
 class SalaListCreate(generics.ListCreateAPIView):
+    queryset = Salas.objects.all()
+    serializer_class = SalaSerializer
+
+class SalaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Salas.objects.all()
     serializer_class = SalaSerializer
 
@@ -35,17 +43,23 @@ class StatusListCreate(generics.ListCreateAPIView):
     queryset = Status.objects.all()
     serializer_class = StatusSerializer
 
+class StatusDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Status.objects.all()
+    serializer_class = StatusSerializer
 
 class BemListCreate(generics.ListCreateAPIView):
     queryset = Bem.objects.all()
     serializer_class = BemSerializer
-
 
 class BemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Bem.objects.all()
     serializer_class = BemSerializer
 
 class CategoriaListCreate(generics.ListCreateAPIView):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class CategoriaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
 
